@@ -95,6 +95,7 @@ const navItems = [
 ];
 
 function Sidebar({
+  user,
   drawerWidth,
   isSidebarOpen,
   setIsSidebarOpen,
@@ -149,7 +150,7 @@ function Sidebar({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                    <Typography key={text} sx={{ m: "2rem 0 1rem 3rem" }}>
                       {text}
                     </Typography>
                   );
@@ -196,6 +197,46 @@ function Sidebar({
               })}
             </List>
           </Box>
+
+          <Box position="absolute" bottom="0" width="100%">
+            <Divider />
+            <FlexBetween textTransform="none" m="1.5rem 2rem 0rem 3rem" gap="1rem">
+              <Box
+                component="img"
+                alt="profile"
+                src={profileImage}
+                height="40px"
+                width="40px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
+
+              <Box textAlign="left">
+                <Typography 
+                  fontWeight="bold" 
+                  fontSize="0.9rem" 
+                  sx={{color: theme.palette.secondary[100]
+                }}>
+                  {user.name}
+                </Typography>
+
+                <Typography
+                  fontSize="0.8rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+
+              <SettingsOutlined
+                sx={{
+                  color: theme.palette.secondary[300],
+                  fontSize: "25px ",
+                }}
+              />
+            </FlexBetween>
+          </Box>
+
         </Drawer>
       )}
     </Box>

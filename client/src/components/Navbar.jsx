@@ -25,7 +25,11 @@ import {
   } from "@mui/material";
 import { useState } from "react";
 
-function Navbar({user, isSidebarOpen, setIsSidebarOpen}) {
+function Navbar({
+    user, 
+    isSidebarOpen, 
+    setIsSidebarOpen
+}) {
 
     const dispatch = useDispatch()
     const theme = useTheme();
